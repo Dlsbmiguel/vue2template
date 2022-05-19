@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.6",
-    "vue": "^2.6.14"
+    "axios": "^0.27.2",
+    "buefy": "^0.9.20",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.4"
   },
   "devDependencies": {
     "@vitejs/plugin-legacy": "^1.7.1",
