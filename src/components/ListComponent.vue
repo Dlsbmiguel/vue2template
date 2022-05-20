@@ -19,12 +19,25 @@
             </p>
           </div>
         </div>
+        <div class="level-item">
+          <div class="field has-addons">
+            <p class="control">
+              <b-button
+                class="button"
+                type="button"
+                tag="router-link"
+                :to="{ path: '/add' }"
+                >Add Categories</b-button
+              >
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="flex flex-col">
       <h4>Category List</h4>
-      <b-table :data="categories">
+      <b-table :data="categories" :loading="isLoading" :bordered="isBordered">
         <b-table-column label="ID" width="40" numeric v-slot="props">
           {{ props.row.id }}
         </b-table-column>
@@ -33,11 +46,18 @@
           {{ props.row.categoryName }}
         </b-table-column>
 
-        <b-table-column label="Actions" v-slot="props">
-          <b-button @click="go(props.row.id)">Edit</b-button>
-          <b-button @click="deleteCategory(props.row.id)" type="is-danger"
-            >Delete</b-button
-          >
+        <b-table-column label="Actions" v-slot="props" class="level">
+          <div class="level-right">
+            <b-button class="control mr-4" @click="go(props.row.id)"
+              >Edit</b-button
+            >
+            <b-button
+              class="control"
+              @click="deleteCategory(props.row.id)"
+              type="is-danger"
+              >Delete</b-button
+            >
+          </div>
         </b-table-column>
       </b-table>
     </div>
@@ -56,6 +76,8 @@ export default {
       currentCategory: null,
       currentIndex: -1,
       id: null,
+      isLoading: false,
+      isBordered: true,
     };
   },
   methods: {
@@ -63,10 +85,11 @@ export default {
       this.$router.push(`/details/${id}`);
     },
     retrieveCategories() {
+      this.isLoading = true;
       CategoryData.getAll()
         .then((res) => {
           this.categories = res.data;
-          console.log(res.data);
+          this.isLoading = false;
         })
         .catch((e) => {
           console.log(e);
