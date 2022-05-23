@@ -1187,6 +1187,11 @@
   "resolved" "https://registry.npmjs.org/svg-tags/-/svg-tags-1.0.0.tgz"
   "version" "1.0.0"
 
+"sweetalert2@11.x":
+  "integrity" "sha512-6xXd7kQps2M0okOJp5D9kR/TVL+DPWiQGQFoUIwkRPN/FAF/RrWkV/VUT0/a+VXjjkxDQDedEs/PK0/ptEo/7A=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.4.16.tgz"
+  "version" "11.4.16"
+
 "systemjs@^6.12.1":
   "integrity" "sha512-hqTN6kW+pN6/qro6G9OZ7ceDQOcYno020zBQKpZQLsJhYTDMCMNfXi/Y8duF5iW+4WWZr42ry0MMkcRGpbwG2A=="
   "resolved" "https://registry.npmjs.org/systemjs/-/systemjs-6.12.1.tgz"
@@ -1284,6 +1289,13 @@
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.4.tgz"
   "version" "3.5.4"
 
+"vue-sweetalert2@^5.0.5":
+  "integrity" "sha512-Q7+TjQxNwGruT2jfPaSKMz18HHWs81r4umEwlrrtOf/QL5Iwl1T+tUaNkcvKB7Rf9rYftubt7NnOMjfDMnDH3A=="
+  "resolved" "https://registry.npmjs.org/vue-sweetalert2/-/vue-sweetalert2-5.0.5.tgz"
+  "version" "5.0.5"
+  dependencies:
+    "sweetalert2" "11.x"
+
 "vue-template-babel-compiler@^1.2.0":
   "integrity" "sha512-CScBSX1/wCdmmZ/Lvj/63p2CCVTS0FMj0F69VRBo73CuJrjvPAPGmeNJ7D/cwt/VS2PduowRWbO8N4Zh4Z3b0g=="
   "resolved" "https://registry.npmjs.org/vue-template-babel-compiler/-/vue-template-babel-compiler-1.2.0.tgz"
@@ -1315,7 +1327,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2.0.0", "vue@^2.6.11", "vue@^2.6.14", "vue@>= 2.5 < 3":
+"vue@*", "vue@^2.0.0", "vue@^2.6.11", "vue@^2.6.14", "vue@>= 2.5 < 3":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"

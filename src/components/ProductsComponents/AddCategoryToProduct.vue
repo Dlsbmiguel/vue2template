@@ -1,11 +1,11 @@
 <template>
-  <div sclass="container">
+  <div v-if="currentProduct" class="container">
     <form @submit.prevent="" class="mt-6">
       <section>
         <b-field label="Product Id">
           <b-input
             placeholder="Product Id"
-            v-model="product.categoriesId"
+            v-model="currentProduct.id"
             type="text"
             maxlength="30"
           ></b-input>
@@ -14,7 +14,7 @@
         <b-field label="Category Id">
           <b-input
             placeholder="1000"
-            v-model="product.productsId"
+            v-model="product.categoriesId"
             type="number"
             maxlength="30"
           ></b-input>
@@ -52,19 +52,29 @@ export default {
         categoriesId: null,
         productsId: null,
       },
+      currentProduct: null,
     };
   },
   methods: {
     async handleSubmit() {
       const data = {
         categoriesId: this.product.categoriesId,
-        productsId: this.product.productsId,
+        productsId: this.currentProduct.id,
       };
-
+      console.log(data);
       try {
         await ProductsService.addCategoryToProduct(data);
+        this.$swal("Added!", "Your Product has been added.", "success");
         alert("Category added to product successfully");
         this.$router.push("/productsList");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getProduct(id) {
+      try {
+        const response = await ProductsService.get(id);
+        this.currentProduct = response.data;
       } catch (error) {
         console.log(error);
       }

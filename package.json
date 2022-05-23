@@ -12,6 +12,7 @@
     "buefy": "^0.9.20",
     "vue": "^2.6.14",
     "vue-router": "^3.5.4",
+    "vue-sweetalert2": "^5.0.5",
     "vuex": "3.6.2",
     "vuex-persistedstate": "^4.1.0"
   },

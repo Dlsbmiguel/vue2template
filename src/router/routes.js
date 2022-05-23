@@ -68,7 +68,7 @@ export default new Router({
     },
     {
       path: "/addCategoryToProduct/:id",
-      name: "addProduct",
+      name: "addCategoryToProduct",
       component: () =>
         import("../components/ProductsComponents/AddCategoryToProduct.vue"),
     },

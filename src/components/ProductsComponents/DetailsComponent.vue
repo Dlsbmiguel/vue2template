@@ -86,7 +86,12 @@ export default {
           this.currentProduct.id,
           this.currentProduct
         );
-        alert((this.message = "The Product was updated successfully!"));
+        this.$swal(
+          "Updated!",
+          "The Product was updated successfully!",
+          "success"
+        );
+
         this.$router.push("/productsList");
       } catch (error) {
         console.log(error);

@@ -80,7 +80,7 @@ export default {
           inStock: this.product.inStock,
         };
         await ProductsService.create(data);
-        alert("Product added successfully");
+        this.$swal("Added!", "Your Product has been added.", "success");
         this.$router.push("/productsList");
       } catch (error) {
         console.log(error);
