@@ -1,24 +1,7 @@
 <template>
   <div class="container">
-    <div class="level">
+    <div class="level mt-5">
       <div class="level-left">
-        <div class="level-item">
-          <div class="field has-addons">
-            <p class="control">
-              <input
-                class="input"
-                type="text"
-                placeholder="Find a category"
-                v-model="id"
-              />
-            </p>
-            <p class="control">
-              <b-button class="button" type="button" @click="searchId"
-                >Search</b-button
-              >
-            </p>
-          </div>
-        </div>
         <div class="level-item">
           <div class="field has-addons">
             <p class="control">
@@ -35,9 +18,16 @@
       </div>
     </div>
 
-    <div class="flex flex-col">
-      <h4>Category List</h4>
-      <b-table :data="categories" :loading="isLoading" :bordered="isBordered">
+    <div>
+      <h1><strong>Category List</strong></h1>
+      <b-table
+        :data="categories"
+        :loading="isLoading"
+        :bordered="isBordered"
+        :paginated="isPaginated"
+        :per-page="perPage"
+        :curret-page.syc="currentPage"
+      >
         <b-table-column label="ID" width="40" numeric v-slot="props">
           {{ props.row.id }}
         </b-table-column>
@@ -65,7 +55,7 @@
 </template>
 
 <script>
-import CategoryData from "../services/CategoryService.js";
+import CategoryService from "../../services/CategoryService";
 export default {
   mounted() {
     this.retrieveCategories();
@@ -78,52 +68,51 @@ export default {
       id: null,
       isLoading: false,
       isBordered: true,
+      isPaginated: true,
+      currentPage: 1,
+      perPage: 5,
     };
   },
   methods: {
     go(id) {
       this.$router.push(`/details/${id}`);
     },
-    retrieveCategories() {
-      this.isLoading = true;
-      CategoryData.getAll()
-        .then((res) => {
-          this.categories = res.data;
-          this.isLoading = false;
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async retrieveCategories() {
+      try {
+        this.isLoading = true;
+        const response = await CategoryService.getAll();
+        this.categories = response.data;
+        this.isLoading = false;
+      } catch (error) {
+        console.log(error);
+      }
     },
     setActiveCategory(category, index) {
       this.currentCategory = category;
       this.currentIndex = category ? index : -1;
     },
-    searchId() {
-      CategoryData.get(this.id)
-        .then((response) => {
-          this.categories = response.data;
-          this.setActiveCategory(this.categories, this.currentIndex);
-          console.log(this.categories);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async searchId() {
+      try {
+        const response = await CategoryService.get(this.id);
+        this.categories = response.data;
+        this.setActiveCategory(this.categories, this.currentIndex);
+      } catch (error) {
+        console.log(error);
+      }
     },
     refreshList() {
       this.retrieveCategories();
       this.currentCategory = null;
       this.currentIndex = -1;
     },
-    deleteCategory(id) {
-      CategoryData.delete(id)
-        .then((response) => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+    async deleteCategory(id) {
+      try {
+        if (confirm("Do you want to delete this row?")) {
+          await CategoryService.delete(id);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

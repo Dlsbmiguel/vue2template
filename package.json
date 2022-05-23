@@ -11,7 +11,9 @@
     "axios": "^0.27.2",
     "buefy": "^0.9.20",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.4"
+    "vue-router": "^3.5.4",
+    "vuex": "3.6.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-legacy": "^1.7.1",
