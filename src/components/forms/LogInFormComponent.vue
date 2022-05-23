@@ -49,7 +49,7 @@ export default {
         };
         const response = await LogInService.login(data);
         this.$store.dispatch("user", response);
-        console.log(response);
+        this.$swal("Success!", "You are now logged In", "success");
         this.$router.push("/");
       } catch (error) {
         console.log(error);

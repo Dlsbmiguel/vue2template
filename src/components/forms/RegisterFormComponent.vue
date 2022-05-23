@@ -82,6 +82,7 @@ export default {
         password: this.password,
       };
       await UserService.create(data);
+      this.$swal("User created!", "Login to start working", "success");
       this.$router.push("/login");
     },
   },

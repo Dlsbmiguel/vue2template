@@ -36,7 +36,7 @@
         </b-table-column>
 
         <b-table-column label="Price" v-slot="props">
-          {{ props.row.productPrice }}
+          RD$ {{ props.row.productPrice }}
         </b-table-column>
 
         <b-table-column label="Description" v-slot="props">
@@ -59,7 +59,7 @@
             >
             <b-button
               class="control"
-              @click="deleteUser(props.row.id)"
+              @click="deleteProduct(props.row.id)"
               type="is-danger"
               >Delete</b-button
             >
@@ -124,7 +124,7 @@ export default {
         console.log(error);
       }
     },
-    deleteUser(id) {
+    deleteProduct(id) {
       this.$swal({
         title: "Are you sure?",
         text: "You won't be able to revert this!",

@@ -64,8 +64,7 @@ export default {
       console.log(data);
       try {
         await ProductsService.addCategoryToProduct(data);
-        this.$swal("Added!", "Your Product has been added.", "success");
-        alert("Category added to product successfully");
+        this.$swal("Added!", "The Category has been added.", "success");
         this.$router.push("/productsList");
       } catch (error) {
         console.log(error);

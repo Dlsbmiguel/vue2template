@@ -47,7 +47,7 @@ export default {
           categoryName: this.category.categoryName,
         };
         await CategoryService.create(data);
-        alert("Category added successfully");
+        this.$swal("Added!", "The Category has been added.", "success");
         this.$router.push("/list");
       } catch (error) {
         console.log(error);

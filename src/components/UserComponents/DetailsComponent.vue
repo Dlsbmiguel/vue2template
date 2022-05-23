@@ -81,7 +81,7 @@ export default {
     async updateUser() {
       try {
         await UserService.update(this.currentUser.id, this.currentUser);
-        alert((this.message = "The User was updated successfully!"));
+        this.$swal("Updated!", "The User was updated successfully!", "success");
         this.$router.push("/userList");
       } catch (error) {
         console.log(error);

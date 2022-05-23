@@ -13,7 +13,9 @@
             <div class="media">
               <div class="media-content">
                 <p class="title is-5">{{ product.productName }}</p>
-                <p class="subtitle is-6">Precio: {{ product.productPrice }}</p>
+                <p class="subtitle is-6">
+                  Precio: RD$ {{ product.productPrice }}
+                </p>
               </div>
             </div>
 

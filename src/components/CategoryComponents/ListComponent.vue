@@ -105,14 +105,26 @@ export default {
       this.currentCategory = null;
       this.currentIndex = -1;
     },
-    async deleteCategory(id) {
-      try {
-        if (confirm("Do you want to delete this row?")) {
-          await CategoryService.delete(id);
+    deleteCategory(id) {
+      this.$swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          CategoryService.delete(id)
+            .then()
+            .catch((e) => {
+              console.log(e);
+            });
+          this.$swal("Deleted!", "The row has been deleted.", "success");
+          this.refreshList();
         }
-      } catch (error) {
-        console.log(error);
-      }
+      });
     },
   },
 };

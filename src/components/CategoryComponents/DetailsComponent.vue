@@ -57,7 +57,7 @@ export default {
           this.currentCategory.id,
           this.currentCategory
         );
-        alert((this.message = "The Category was updated successfully!"));
+        this.$swal("Updated!", "The Category has been updated.", "success");
         this.$router.push("/list");
       } catch (error) {
         console.log(error);

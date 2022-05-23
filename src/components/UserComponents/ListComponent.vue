@@ -103,15 +103,26 @@ export default {
         console.log(error);
       }
     },
-    async deleteUser(id) {
-      try {
-        if (confirm("Do you want to delete this row?")) {
-          await UserService.delete(id);
+    deleteUser(id) {
+      this.$swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          UserService.delete(id)
+            .then()
+            .catch((e) => {
+              console.log(e);
+            });
+          this.$swal("Deleted!", "The User has been deleted.", "success");
           this.refreshList();
         }
-      } catch (error) {
-        console.log(error);
-      }
+      });
     },
   },
 };
