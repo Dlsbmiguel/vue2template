@@ -17,6 +17,18 @@
   dependencies:
     "@types/throttle-debounce" "^2.1.0"
 
+"@azure/msal-browser@2":
+  "integrity" "sha512-P4Z8mQ6hTuA9ss3HCltso7fRmuX1raaU6444G35c0FhaD6hfqViFYRa7hk16AiAs9HkUQHbBaL3gLjKMpX3heA=="
+  "resolved" "https://registry.npmjs.org/@azure/msal-browser/-/msal-browser-2.24.0.tgz"
+  "version" "2.24.0"
+  dependencies:
+    "@azure/msal-common" "^6.3.0"
+
+"@azure/msal-common@^6.3.0":
+  "integrity" "sha512-ZyLq9GdnLBi/83YpysE86TFKbA0TuvfNAN5Psqu20cdAjLo/4rw4ttiItdh1G//XeGErHk9qn57gi2AYU1b5/Q=="
+  "resolved" "https://registry.npmjs.org/@azure/msal-common/-/msal-common-6.3.0.tgz"
+  "version" "6.3.0"
+
 "@babel/code-frame@^7.16.7":
   "integrity" "sha512-iAXqUn8IIeBTNd72xsFlgaXHkMBMt6y4HJp1tIaK465CWLT/fG1aqB7ykr95gHHmlBdGbFeWWfyB4NJJ0nmeIg=="
   "resolved" "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.16.7.tgz"
@@ -1284,6 +1296,14 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"vue-msal-browser@^2.0.0":
+  "integrity" "sha512-d/N/FEInp+9QmzrggcxkBIqiQeK6SpSyq2cuVkrHmdcxAr/SNmfab6XIivj2ktxuuSCeLGRQPGEFLDvCOfLNag=="
+  "resolved" "https://registry.npmjs.org/vue-msal-browser/-/vue-msal-browser-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "@azure/msal-browser" "2"
+    "vue" "^2.5.2"
+
 "vue-router@^3.5.4":
   "integrity" "sha512-x+/DLAJZv2mcQ7glH2oV9ze8uPwcI+H+GgTgTmb5I55bCgY3+vXWIsqbYUzbBSZnwFHEJku4eoaH/x98veyymQ=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.4.tgz"
@@ -1327,7 +1347,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@*", "vue@^2.0.0", "vue@^2.6.11", "vue@^2.6.14", "vue@>= 2.5 < 3":
+"vue@*", "vue@^2.0.0", "vue@^2.5.2", "vue@^2.6.11", "vue@^2.6.14", "vue@>= 2.5 < 3":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
